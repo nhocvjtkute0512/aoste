@@ -1,10 +1,19 @@
 extends layouts/layout
 
 block vars
-  -title = 'Homepage'
-  -bodyClass = 'home'
-  -menuIndex = 0
+	-title = 'Index'
+	-bodyClass = 'home'
+	-menuIndex = 0
 
 block container
-  main
-    p(data-plugin) TODO
+	main
+		.register-slider
+			form
+				fieldset
+					.heading
+						+link-img('images/logo.png', 'AOSTE').logo
+						h3 Bienvenue dans
+						h4 Le club Aoste
+					.content 
+		.top-bg-gradient
+		.bottom-bg-gradient

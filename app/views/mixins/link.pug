@@ -6,3 +6,11 @@ mixin link(title, href, text)
       block
     else
       !=text
+
+mixin link-img(src, title, href, text, alt)
+  - if (typeof(text) === 'undefined') text = title
+  - if (typeof(href) === 'undefined') href = '#'
+  - if (typeof(src) === 'undefined') src = 'images/transparent.png'
+  - if (typeof(alt) === 'undefined') alt = 'Unibail Rodamc'
+  a(href=href, title=title)&attributes(attributes)
+    img(src=src, alt=alt)

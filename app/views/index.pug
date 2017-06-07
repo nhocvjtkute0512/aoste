@@ -7,13 +7,117 @@ block vars
 
 block container
 	main
+		.bg-cover
 		.register-slider
+			.dots
+				ul
+					li
+						button
+					li
+						button
+					li
+						button
+					li
+						button
+					li
+						button
+					li
+						button
+			.button-group
+				button(type='button').close
 			form
-				fieldset
-					.heading
-						+link-img('images/logo.png', 'AOSTE').logo
-						h3 Bienvenue dans
-						h4 Le club Aoste
-					.content 
+				.slider-wrapper
+					.slider-item.step-1
+						.heading
+							+link-img('images/logo.png', 'AOSTE').logo
+							h3 Bienvenue dans
+							h4 Le club Aoste
+						fieldset
+							.fieldset-title
+								h3
+									span 1.
+									|	Une question de formalité
+							.element
+								label(for='email').label Votre e-mail*
+								input(type='text', name='email', placeholder='Votre e-mail*').email
+								span.error-email The email is invalid
+							.group-element
+								.col-6
+									label(for='password').label Votre mot de passe*
+									input(type='password', name='password', placeholder='Votre mot de passe*')
+								.col-6
+									label(for='password').label.hidden Votre mot de passe*
+									input(type='password', name='password', placeholder='Votre mot de passe*')
+								span.error-password Password does not match the confirm password
+					.slider-item.step-2
+						fieldset
+							.fieldset-title
+								h3
+									span 2.
+									|	Mieux vous connaître
+								p Nous sommes susceptibles de vous envoyer de nombreux cadeaux… Mieux vaut que vous nous laissiez vos coordonnées !
+							.element
+								p Civillité*
+								.group-radio
+									input(type='radio', name='gender', value='mr', checked='')
+									label(for='mr') mr
+									input(type='radio', name='gender', value='mlle', checked='')
+									label(for='mlle') mlle
+									input(type='radio', name='gender', value='mme', checked='')
+									label(for='mme') mme
+							.group-element
+								.col-6
+									label(for='name').label Votre mot de passe*
+									input(type='text', name='name', placeholder='Votre mot de passe*')
+									span.error-name Name is required
+								.col-6
+									label(for='first-name').label.hidden Votre mot de passe*
+									input(type='text', name='first-name', placeholder='Votre mot de passe*')
+									span.error-name First name is required
+					.slider-item.step-3
+						fieldset
+							.fieldset-title
+								p Forcément, nous tenons à vous souhaiter votre anniversaire.
+							.element
+								p Date de naissance*
+								.group-radio
+									input(type='radio', name='gender', value='mr', checked='')
+									label(for='mr') mr
+									input(type='radio', name='gender', value='mlle', checked='')
+									label(for='mlle') mlle
+									input(type='radio', name='gender', value='mme', checked='')
+									label(for='mme') mme
+					.slider-item.step-4
+						fieldset
+							.fieldset-title
+								p Votre adresse postale
+							.element
+								label(for='email').label Votre e-mail*
+								input(type='text', name='email', placeholder='Votre e-mail*').email
+								span.error-email The email is invalid
+							.group-element
+								.col-6
+									label(for='password').label Votre mot de passe*
+									input(type='password', name='password', placeholder='Votre mot de passe*')
+								.col-6
+									label(for='password').label.hidden Votre mot de passe*
+									input(type='password', name='password', placeholder='Votre mot de passe*')
+								span.error-password Password does not match the confirm password
+					.slider-item.step-5
+						fieldset
+							.fieldset-title
+								p Votre adresse postale
+							.element
+								label(for='email').label Votre e-mail*
+								input(type='text', name='email', placeholder='Votre e-mail*').email
+					.slider-item.step-6
+						fieldset
+							.fieldset-title
+								input(type='checkbox', name='checked', value='checked')
+								label(for='checked') Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
+								p Les informations vous concernant sont destinées à Aoste afin de vous fournir les services de Aoste et, sous réserve de vos choix, de vous informer des offres privilégiées de Aoste. Conformément à la loi française « Informatique et Libertés » n°78-17 du 6 janvier 1978, vous pouvez demander à accéder aux informations qui vous concernent, pour les faire rectifier, modifier, ou supprimer, ou pour vous opposer à leur traitement par Aoste en écrivant aux coordonnées précisées dans les Conditions Générales d’Utilisation du Club Aoste.
+							.element
+								button(type='button') Devenir membre
+								p Voir le règlement du Club Aoste
 		.top-bg-gradient
 		.bottom-bg-gradient

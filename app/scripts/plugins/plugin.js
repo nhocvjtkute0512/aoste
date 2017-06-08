@@ -33,7 +33,7 @@
         btnUp: this.element.find('.btn-up'),
         btnDown: this.element.find('.btn-down'),
         sliderCount: this.element.find('.slider-item').length,
-        sliderHeight: 270,
+        sliderHeight: 300,
         sliderWrapper: this.element.find('.slider-wrapper'),
         sliderItem: this.element.find('.slider-item'),
       };
@@ -101,9 +101,7 @@
       this.vars.currentIdx = idx;
       this.vars.dot.removeClass('active').eq(this.vars.currentIdx).addClass('active');
       this.vars.sliderWrapper.animate({ top: -this.vars.sliderHeight * idx }, this.options.speed);
-      console.log(idx+1);
-/*      $('.slider-item').removeClass('slider-active');
-      $('.slider-wrapper div:nth-child(' + (idx + 1) +')').addClass('slider-active');*/
+      this.vars.sliderItem.removeClass('slider-active').eq(this.vars.currentIdx).addClass('slider-active');
     },
 
     destroy: function() {

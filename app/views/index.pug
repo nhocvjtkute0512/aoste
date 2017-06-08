@@ -8,7 +8,7 @@ block vars
 block container
 	main
 		.bg-cover
-		.register-slider(data-slider)
+		.register-slider
 			.dots
 				ul
 					li.active
@@ -27,9 +27,9 @@ block container
 				button(type='button', name='close').btn-close 
 				button(type='button', name='up').btn-up
 				button(type='button', name='down').btn-down
-			form
+			form(action='' method='').register-form
 				.slider-wrapper
-					.slider-item.step-1
+					.slider-item.step-1.slider-active
 						.heading
 							+link-img('images/logo.png', 'AOSTE').logo
 							h3 Bienvenue dans
@@ -41,16 +41,16 @@ block container
 									|	Une question de formalité
 							.element
 								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*').email
-								span.error-message.error-email The email is invalid
+								input(type='text', name='email', placeholder='Votre e-mail*', data-validate).email
+								span.error-message.error-email Lorem Ipsum is simply dummy text
 							.group-element
 								.col-6
 									label(for='password').label Votre mot de passe*
-									input(type='password', name='password', placeholder='Votre mot de passe*')
+									input(type='password', name='password', placeholder='Votre mot de passe*').password
 								.col-6
-									label(for='password').label.hidden Votre mot de passe*
-									input(type='password', name='password', placeholder='Votre mot de passe*')
-								span.error-message.error-password Password does not match the confirm password
+									label(for='confirm-password').label.hidden Votre mot de passe*
+									input(type='password', name='confirm-password', placeholder='Votre mot de passe*').confirm-password
+								span.error-message.error-confirm-password Lorem Ipsum is simply dummy text
 					.slider-item.step-2
 						fieldset
 							.fieldset-title
@@ -61,7 +61,7 @@ block container
 							.element
 								p Civillité*
 								.group-radio
-									input(type='radio', id='mr', name='gender', value='mr')
+									input(type='radio', id='mr', name='gender', value='mr', checked)
 									label(for='mr') mr
 									input(type='radio', id='mlle', name='gender', value='mlle')
 									label(for='mlle') mlle
@@ -70,12 +70,12 @@ block container
 							.group-element
 								.col-6
 									label(for='name').label Nom*
-									input(type='text', name='name', placeholder='Nom*')
-									span.error-message.error-name Name is required
+									input(type='text', name='name', placeholder='Nom*').name
+									span.error-message.error-name Lorem Ipsum is simply dummy text
 								.col-6
 									label(for='first-name').label.hidden Prénom*
-									input(type='text', name='first-name', placeholder='Prénom*')
-									span.error-message.error-name First name is required
+									input(type='text', name='first-name', placeholder='Prénom*').first-name
+									span.error-message.error-name Lorem Ipsum is simply dummy text
 					.slider-item.step-3
 						fieldset
 							.fieldset-title
@@ -89,6 +89,7 @@ block container
 										+select('MM',1,2,3,4,5,6,7,8,9,10)
 									.select-year
 										+select('AAAA',1,2,3,4,5,6,7,8,9,10)
+								span.error-message.error-birthday Lorem Ipsum is simply dummy text
 					.slider-item.step-4
 						fieldset
 							.fieldset-title
@@ -96,16 +97,16 @@ block container
 							.element
 								label(for='address').label Adresse*
 								input(type='text', name='address', placeholder='Adresse*').address
-								span.error-message.error-address The address is required
+								span.error-message.error-address Lorem Ipsum is simply dummy text
 							.group-element
 								.col-6
 									label(for='postcode').label Code postal*
-									input(type='text', name='postcode', placeholder='Code postal*')
-									span.error-message.error-postcode The postcode is required
+									input(type='text', name='postcode', placeholder='Code postal*').postcode
+									span.error-message.error-postcode Lorem Ipsum is simply dummy text
 								.col-6
-									label(for='Ville*').label.hidden Ville*
-									input(type='text', name='Ville*', placeholder='Ville*')
-									span.error-message.error-Ville The ville is required
+									label(for='city').label.hidden Ville*
+									input(type='text', name='city', placeholder='Ville*').city
+									span.error-message.error-city Lorem Ipsum is simply dummy text
 					.slider-item.step-5
 						fieldset
 							.fieldset-title
@@ -116,9 +117,9 @@ block container
 					.slider-item.step-6
 						fieldset
 							.fieldset-title
-								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox')
+								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox').comfirm-checkbox
 								label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
 							.element
-								button(type='button') devenir membre
+								input(type='submit', value='devenir membre').btn-submit
 		.top-bg-gradient
 		.bottom-bg-gradient

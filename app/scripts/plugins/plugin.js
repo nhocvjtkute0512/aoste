@@ -11,15 +11,11 @@
  *    publicMethod
  *    destroy
  */
- /*
+ 
 ;(function($, window, undefined) {
   'use strict';
 
-  var pluginName = 'plugin';
-  var privateVar = null;
-  var privateMethod = function(el, options) {
-    // to do
-  };
+  var pluginName = 'slider';
 
   function Plugin(element, options) {
     this.element = $(element);
@@ -31,19 +27,86 @@
     init: function() {
       var that = this;
       this.vars = {
-        key: 'value'
+        stopClick: 0,
+        currentIdx: 0,
+        dot: this.element.find('.dots ul li'),
+        btnUp: this.element.find('.btn-up'),
+        btnDown: this.element.find('.btn-down'),
+        sliderCount: this.element.find('.slider-item').length,
+        sliderHeight: 270,
+        sliderWrapper: this.element.find('.slider-wrapper'),
+        sliderItem: this.element.find('.slider-item'),
       };
-      // initialize
-      // add events
+
+      this.vars.btnUp.on('click', function(e) {
+        if (e.timeStamp - that.vars.stopClick > that.options.speed) { 
+          that.upTo();    
+          that.vars.stopClick = e.timeStamp; 
+        }
+      });
+
+      this.vars.btnDown.on('click', function(e) {
+        if (e.timeStamp - that.vars.stopClick > that.options.speed) { 
+          that.downTo();    
+          that.vars.stopClick = e.timeStamp; 
+        }
+      });
+
+      this.vars.dot.on('click', function(e) {
+        that.slideTo($(e.currentTarget).index());
+      });
+
+      $(window).on('mousewheel DOMMouseScroll', function (e) {
+        var delta = e.originalEvent.wheelDelta ? 
+        e.originalEvent.wheelDelta : -e.originalEvent.detail;
+        if (delta >= 0) {
+          if (e.timeStamp - that.vars.stopClick > that.options.speed) { 
+            that.upTo();    
+            that.vars.stopClick = e.timeStamp; 
+          }
+        } 
+        else {
+          if (e.timeStamp - that.vars.stopClick > that.options.speed) { 
+            that.downTo();    
+            that.vars.stopClick = e.timeStamp; 
+          }
+        }
+      });
+
     },
-    publicMethod: function(params) {
-      // to do
-      $.isFunction(this.options.onCallback) && this.options.onCallback();
-      this.element.trigger('customEvent');
+
+    upTo: function() {
+      var up;
+      if (this.vars.currentIdx === 0) {
+        up = this.vars.sliderCount - 1;
+      } 
+      else {
+        up = this.vars.currentIdx - 1;
+      }
+      this.slideTo(up);
     },
+
+    downTo: function() {
+      var down;
+      if (this.vars.currentIdx === this.vars.sliderCount - 1) {
+        down = 0;
+      } 
+      else {
+        down = this.vars.currentIdx + 1;
+      }
+      this.slideTo(down);
+    },
+
+    slideTo: function(idx) {
+      this.vars.currentIdx = idx;
+      this.vars.dot.removeClass('active').eq(this.vars.currentIdx).addClass('active');
+      this.vars.sliderWrapper.animate({ top: -this.vars.sliderHeight * idx }, this.options.speed);
+      console.log(idx+1);
+/*      $('.slider-item').removeClass('slider-active');
+      $('.slider-wrapper div:nth-child(' + (idx + 1) +')').addClass('slider-active');*/
+    },
+
     destroy: function() {
-      // remove events
-      // deinitialize
       $.removeData(this.element[0], pluginName);
     }
   };
@@ -60,8 +123,7 @@
   };
 
   $.fn[pluginName].defaults = {
-    key: 'value',
-    onCallback: null
+    speed: 500
   };
 
   $(function() {
@@ -70,9 +132,8 @@
     });
 
     $('[data-' + pluginName + ']')[pluginName]({
-      key: 'custom'
+      
     });
   });
 
 }(jQuery, window));
-*/

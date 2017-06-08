@@ -8,10 +8,10 @@ block vars
 block container
 	main
 		.bg-cover
-		.register-slider
+		.register-slider(data-slider)
 			.dots
 				ul
-					li
+					li.active
 						button
 					li
 						button
@@ -24,7 +24,9 @@ block container
 					li
 						button
 			.button-group
-				button(type='button').close
+				button(type='button', name='close').btn-close 
+				button(type='button', name='up').btn-up
+				button(type='button', name='down').btn-down
 			form
 				.slider-wrapper
 					.slider-item.step-1
@@ -40,7 +42,7 @@ block container
 							.element
 								label(for='email').label Votre e-mail*
 								input(type='text', name='email', placeholder='Votre e-mail*').email
-								span.error-email The email is invalid
+								span.error-message.error-email The email is invalid
 							.group-element
 								.col-6
 									label(for='password').label Votre mot de passe*
@@ -48,7 +50,7 @@ block container
 								.col-6
 									label(for='password').label.hidden Votre mot de passe*
 									input(type='password', name='password', placeholder='Votre mot de passe*')
-								span.error-password Password does not match the confirm password
+								span.error-message.error-password Password does not match the confirm password
 					.slider-item.step-2
 						fieldset
 							.fieldset-title
@@ -59,65 +61,64 @@ block container
 							.element
 								p Civillité*
 								.group-radio
-									input(type='radio', name='gender', value='mr', checked='')
+									input(type='radio', id='mr', name='gender', value='mr')
 									label(for='mr') mr
-									input(type='radio', name='gender', value='mlle', checked='')
+									input(type='radio', id='mlle', name='gender', value='mlle')
 									label(for='mlle') mlle
-									input(type='radio', name='gender', value='mme', checked='')
+									input(type='radio', id='mme', name='gender', value='mme')
 									label(for='mme') mme
 							.group-element
 								.col-6
-									label(for='name').label Votre mot de passe*
-									input(type='text', name='name', placeholder='Votre mot de passe*')
-									span.error-name Name is required
+									label(for='name').label Nom*
+									input(type='text', name='name', placeholder='Nom*')
+									span.error-message.error-name Name is required
 								.col-6
-									label(for='first-name').label.hidden Votre mot de passe*
-									input(type='text', name='first-name', placeholder='Votre mot de passe*')
-									span.error-name First name is required
+									label(for='first-name').label.hidden Prénom*
+									input(type='text', name='first-name', placeholder='Prénom*')
+									span.error-message.error-name First name is required
 					.slider-item.step-3
 						fieldset
 							.fieldset-title
 								p Forcément, nous tenons à vous souhaiter votre anniversaire.
 							.element
 								p Date de naissance*
-								.group-radio
-									input(type='radio', name='gender', value='mr', checked='')
-									label(for='mr') mr
-									input(type='radio', name='gender', value='mlle', checked='')
-									label(for='mlle') mlle
-									input(type='radio', name='gender', value='mme', checked='')
-									label(for='mme') mme
+								.group-selection
+									.select-day
+										+select('JJ',1,2,3,4,5,6,7,8,9,10)
+									.select-month
+										+select('MM',1,2,3,4,5,6,7,8,9,10)
+									.select-year
+										+select('AAAA',1,2,3,4,5,6,7,8,9,10)
 					.slider-item.step-4
 						fieldset
 							.fieldset-title
-								p Votre adresse postale
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
-								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*').email
-								span.error-email The email is invalid
+								label(for='address').label Adresse*
+								input(type='text', name='address', placeholder='Adresse*').address
+								span.error-message.error-address The address is required
 							.group-element
 								.col-6
-									label(for='password').label Votre mot de passe*
-									input(type='password', name='password', placeholder='Votre mot de passe*')
+									label(for='postcode').label Code postal*
+									input(type='text', name='postcode', placeholder='Code postal*')
+									span.error-message.error-postcode The postcode is required
 								.col-6
-									label(for='password').label.hidden Votre mot de passe*
-									input(type='password', name='password', placeholder='Votre mot de passe*')
-								span.error-password Password does not match the confirm password
+									label(for='Ville*').label.hidden Ville*
+									input(type='text', name='Ville*', placeholder='Ville*')
+									span.error-message.error-Ville The ville is required
 					.slider-item.step-5
 						fieldset
 							.fieldset-title
-								p Votre adresse postale
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
-								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*').email
+								label(for='telephone').label Téléphone mobile
+								input(type='text', name='telephone', placeholder='Téléphone mobile').telephone
 					.slider-item.step-6
 						fieldset
 							.fieldset-title
-								input(type='checkbox', name='checked', value='checked')
-								label(for='checked') Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
-								p Les informations vous concernant sont destinées à Aoste afin de vous fournir les services de Aoste et, sous réserve de vos choix, de vous informer des offres privilégiées de Aoste. Conformément à la loi française « Informatique et Libertés » n°78-17 du 6 janvier 1978, vous pouvez demander à accéder aux informations qui vous concernent, pour les faire rectifier, modifier, ou supprimer, ou pour vous opposer à leur traitement par Aoste en écrivant aux coordonnées précisées dans les Conditions Générales d’Utilisation du Club Aoste.
+								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox')
+								label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
 							.element
-								button(type='button') Devenir membre
-								p Voir le règlement du Club Aoste
+								button(type='button') devenir membre
 		.top-bg-gradient
 		.bottom-bg-gradient

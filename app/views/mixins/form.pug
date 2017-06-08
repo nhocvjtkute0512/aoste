@@ -1,0 +1,5 @@
+mixin select(...items)
+	span.arrow-select
+	select
+		each item in items
+			option(value=item)= item

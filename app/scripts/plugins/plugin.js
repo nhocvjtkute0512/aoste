@@ -33,7 +33,7 @@
         btnUp: this.element.find('.btn-up'),
         btnDown: this.element.find('.btn-down'),
         sliderCount: this.element.find('.slider-item').length,
-        sliderHeight: 300,
+        sliderHeight: 260,
         sliderWrapper: this.element.find('.slider-wrapper'),
         sliderItem: this.element.find('.slider-item'),
       };
@@ -78,23 +78,23 @@
     upTo: function() {
       var up;
       if (this.vars.currentIdx === 0) {
-        up = this.vars.sliderCount - 1;
+        this.vars.btnUp.disabled = true;
       } 
       else {
         up = this.vars.currentIdx - 1;
+        this.slideTo(up);
       }
-      this.slideTo(up);
     },
 
     downTo: function() {
       var down;
       if (this.vars.currentIdx === this.vars.sliderCount - 1) {
-        down = 0;
+        this.vars.btnDown.disabled = true;
       } 
       else {
         down = this.vars.currentIdx + 1;
+        this.slideTo(down);
       }
-      this.slideTo(down);
     },
 
     slideTo: function(idx) {

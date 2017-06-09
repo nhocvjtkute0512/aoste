@@ -1,7 +1,7 @@
 extends layouts/layout
 
 block vars
-	-title = 'Index'
+	-title = 'Homepage'
 	-bodyClass = 'home'
 	-menuIndex = 0
 
@@ -27,13 +27,13 @@ block container
 				button(type='button', name='close').btn-close 
 				button(type='button', name='up').btn-up
 				button(type='button', name='down').btn-down
-			form(action='' method='post').register-form
+			form(action='' method='').register-form
 				.slider-wrapper
 					.slider-item.step-1.slider-active
 						.heading
 							+link-img('images/logo.png', 'AOSTE').logo
-							h3 Bienvenue dans
-							h4 Le club Aoste
+							h2 Bienvenue dans
+								span Le club Aoste
 						fieldset
 							.fieldset-title
 								h3
@@ -41,7 +41,7 @@ block container
 									|	Une question de formalité
 							.element
 								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*', data-validate, autofocus).email
+								input(type='text', name='email', placeholder='Votre e-mail*').email
 								span.error-message.error-email Email
 							.group-element
 								.col-6
@@ -86,7 +86,7 @@ block container
 								p Date de naissance*
 								.group-selection
 									.select-day
-										+select('JJ',1,2,3,4,5,6,7,8,9,10)
+										+select('JJ',1,2,3,4,5,6,7,8,9,10,11,12)
 									.select-month
 										+select('MM',1,2,3,4,5,6,7,8,9,10)
 									.select-year
@@ -115,7 +115,7 @@ block container
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='telephone').label Téléphone mobile
-								input(type='text', name='telephone', placeholder='Téléphone mobile').telephone
+								input(type='text', name='telephone', placeholder='Téléphone mobile', maxlength='20').telephone
 					.slider-item.step-6
 						fieldset
 							.fieldset-title

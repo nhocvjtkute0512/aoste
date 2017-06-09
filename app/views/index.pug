@@ -10,19 +10,6 @@ block container
 		.bg-cover
 		.register-slider
 			.dots
-				ul
-					li.active
-						button
-					li
-						button
-					li
-						button
-					li
-						button
-					li
-						button
-					li
-						button
 			.button-group
 				button(type='button', name='close').btn-close 
 				button(type='button', name='up').btn-up
@@ -35,7 +22,7 @@ block container
 							h2 Bienvenue dans
 								span Le club Aoste
 						fieldset
-							.fieldset-title
+							.title
 								h3
 									span 1.
 									|	Une question de formalité
@@ -44,18 +31,18 @@ block container
 								input(type='text', name='email', placeholder='Votre e-mail*').email
 								span.error-message.error-email Email
 							.group-element
-								.col-6
+								.element
 									label(for='password').label Votre mot de passe*
 									input(type='password', name='password', placeholder='Votre mot de passe*').password
 									span.error-message.error-password Password
-								.col-6
+								.element
 									label(for='confirm-password').label.hidden Votre mot de passe*
 									input(type='password', name='confirm-password', placeholder='Votre mot de passe*').confirm-password
 									span.error-message.error-confirm-password Confirm password
 								span.error-message.error-compare-password Compare password
 					.slider-item.step-2
 						fieldset
-							.fieldset-title
+							.title
 								h3
 									span 2.
 									|	Mieux vous connaître
@@ -63,64 +50,68 @@ block container
 							.element
 								p Civillité*
 								.group-radio
-									input(type='radio', id='mr', name='gender', value='mr', checked)
-									label(for='mr') mr
-									input(type='radio', id='mlle', name='gender', value='mlle')
-									label(for='mlle') mlle
-									input(type='radio', id='mme', name='gender', value='mme')
-									label(for='mme') mme
-							.group-element(data-validate)
-								.col-6
+									.radio-item
+										input(type='radio', id='mr', name='gender', value='mr', checked)
+										label(for='mr') mr
+									.radio-item
+										input(type='radio', id='mlle', name='gender', value='mlle')
+										label(for='mlle') mlle
+									.radio-item
+										input(type='radio', id='mme', name='gender', value='mme')
+										label(for='mme') mme
+							.group-element
+								.element
 									label(for='name').label Nom*
 									input(type='text', name='name', placeholder='Nom*', maxlength='100').name
 									span.error-message.error-name Name
-								.col-6
+								.element
 									label(for='first-name').label.hidden Prénom*
 									input(type='text', name='first-name', placeholder='Prénom*', maxlength='100').first-name
 									span.error-message.error-name First name
 					.slider-item.step-3
 						fieldset
-							.fieldset-title
+							.title
 								p Forcément, nous tenons à vous souhaiter votre anniversaire.
 							.element
 								p Date de naissance*
 								.group-selection
-									.select-day
+									.selection.select-day
 										+select('JJ',1,2,3,4,5,6,7,8,9,10,11,12)
-									.select-month
+									.selection.select-month
 										+select('MM',1,2,3,4,5,6,7,8,9,10)
-									.select-year
+									.selection.select-year
 										+select('AAAA',1,2,3,4,5,6,7,8,9,10)
 								span.error-message.error-birthday Lorem Ipsum is simply dummy text
 					.slider-item.step-4
 						fieldset
-							.fieldset-title
+							.title
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='address').label Adresse*
 								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address
 								span.error-message.error-address Address
 							.group-element
-								.col-6
+								.element
 									label(for='postcode').label Code postal*
 									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode
 									span.error-message.error-postcode Postcode
-								.col-6
+								.element
 									label(for='city').label.hidden Ville*
 									input(type='text', name='city', placeholder='Ville*', maxlength='100').city
 									span.error-message.error-city City
 					.slider-item.step-5
 						fieldset
-							.fieldset-title
+							.title
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='telephone').label Téléphone mobile
 								input(type='text', name='telephone', placeholder='Téléphone mobile', maxlength='20').telephone
 					.slider-item.step-6
 						fieldset
-							.fieldset-title
-								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' required).comfirm-checkbox
-								label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
+							.title
+								.checkbox-item
+									input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' required).comfirm-checkbox
+									label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
 							.element
 								input(type='submit', value='devenir membre').btn-submit
 		.top-bg-gradient

@@ -29,7 +29,6 @@
       this.vars = {
         stopClick: 0,
         currentIdx: 0,
-        dot: this.element.find('.dots ul li'),
         btnUp: this.element.find('.btn-up'),
         btnDown: this.element.find('.btn-down'),
         sliderCount: this.element.find('.slider-item').length,
@@ -52,9 +51,13 @@
         }
       });
 
-      this.vars.dot.on('click', function(e) {
-        that.slideTo($(e.currentTarget).index());
-      });
+      if (this.options.dots) {
+        this.addDots();       
+        var dots = this.element.find('.dots ul li');
+        dots.on('click', function(e) {
+          that.slideTo($(e.currentTarget).index());
+        });
+      }
 
       $(window).on('mousewheel DOMMouseScroll', function (e) {
         var delta = e.originalEvent.wheelDelta ? 
@@ -73,6 +76,16 @@
         }
       });
 
+    },
+
+    addDots: function() {
+      var str = '<ul>';
+      for (var i = 0; i <= this.vars.sliderCount - 1; i++) {
+        str += '<li><button></button></li>';
+      }
+      str += '</ul>';
+      $('.dots').append(str);
+      $('.dots li').first().addClass('active');
     },
 
     upTo: function() {
@@ -98,8 +111,9 @@
     },
 
     slideTo: function(idx) {
+      var dots = this.element.find('.dots ul li');
       this.vars.currentIdx = idx;
-      this.vars.dot.removeClass('active').eq(this.vars.currentIdx).addClass('active');
+      dots.removeClass('active').eq(this.vars.currentIdx).addClass('active');
       this.vars.sliderWrapper.animate({ top: -this.vars.sliderHeight * idx }, this.options.speed);
       this.vars.sliderItem.removeClass('slider-active').eq(this.vars.currentIdx).addClass('slider-active');
     },
@@ -121,7 +135,8 @@
   };
 
   $.fn[pluginName].defaults = {
-    speed: 500
+    speed: 500,
+    dots: true
   };
 
   $(function() {

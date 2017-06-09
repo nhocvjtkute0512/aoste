@@ -27,7 +27,7 @@ block container
 				button(type='button', name='close').btn-close 
 				button(type='button', name='up').btn-up
 				button(type='button', name='down').btn-down
-			form(action='' method='').register-form
+			form(action='' method='post').register-form
 				.slider-wrapper
 					.slider-item.step-1.slider-active
 						.heading
@@ -41,16 +41,18 @@ block container
 									|	Une question de formalité
 							.element
 								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*', data-validate).email
-								span.error-message.error-email Lorem Ipsum is simply dummy text
+								input(type='text', name='email', placeholder='Votre e-mail*', data-validate, autofocus).email
+								span.error-message.error-email Email
 							.group-element
 								.col-6
 									label(for='password').label Votre mot de passe*
 									input(type='password', name='password', placeholder='Votre mot de passe*').password
+									span.error-message.error-password Password
 								.col-6
 									label(for='confirm-password').label.hidden Votre mot de passe*
 									input(type='password', name='confirm-password', placeholder='Votre mot de passe*').confirm-password
-								span.error-message.error-confirm-password Lorem Ipsum is simply dummy text
+									span.error-message.error-confirm-password Confirm password
+								span.error-message.error-compare-password Compare password
 					.slider-item.step-2
 						fieldset
 							.fieldset-title
@@ -67,15 +69,15 @@ block container
 									label(for='mlle') mlle
 									input(type='radio', id='mme', name='gender', value='mme')
 									label(for='mme') mme
-							.group-element
+							.group-element(data-validate)
 								.col-6
 									label(for='name').label Nom*
-									input(type='text', name='name', placeholder='Nom*').name
-									span.error-message.error-name Lorem Ipsum is simply dummy text
+									input(type='text', name='name', placeholder='Nom*', maxlength='100').name
+									span.error-message.error-name Name
 								.col-6
 									label(for='first-name').label.hidden Prénom*
-									input(type='text', name='first-name', placeholder='Prénom*').first-name
-									span.error-message.error-name Lorem Ipsum is simply dummy text
+									input(type='text', name='first-name', placeholder='Prénom*', maxlength='100').first-name
+									span.error-message.error-name First name
 					.slider-item.step-3
 						fieldset
 							.fieldset-title
@@ -96,17 +98,17 @@ block container
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='address').label Adresse*
-								input(type='text', name='address', placeholder='Adresse*').address
-								span.error-message.error-address Lorem Ipsum is simply dummy text
+								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address
+								span.error-message.error-address Address
 							.group-element
 								.col-6
 									label(for='postcode').label Code postal*
-									input(type='text', name='postcode', placeholder='Code postal*').postcode
-									span.error-message.error-postcode Lorem Ipsum is simply dummy text
+									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode
+									span.error-message.error-postcode Postcode
 								.col-6
 									label(for='city').label.hidden Ville*
-									input(type='text', name='city', placeholder='Ville*').city
-									span.error-message.error-city Lorem Ipsum is simply dummy text
+									input(type='text', name='city', placeholder='Ville*', maxlength='100').city
+									span.error-message.error-city City
 					.slider-item.step-5
 						fieldset
 							.fieldset-title
@@ -117,7 +119,7 @@ block container
 					.slider-item.step-6
 						fieldset
 							.fieldset-title
-								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox').comfirm-checkbox
+								input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' required).comfirm-checkbox
 								label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
 							.element
 								input(type='submit', value='devenir membre').btn-submit

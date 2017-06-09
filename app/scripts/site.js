@@ -6,9 +6,4 @@ $(function() {
 		});
 	}
 
-	$('.register').submit(function() {
-		alert('abc');
-	}
-
-
 });

@@ -36,8 +36,8 @@ block container
 									input(type='password', name='password', placeholder='Votre mot de passe*').password
 									span.error-message.error-password Password
 								.element
-									label(for='confirm-password').label.hidden Votre mot de passe*
-									input(type='password', name='confirm-password', placeholder='Votre mot de passe*').confirm-password
+									label(for='confirm-password').label.hidden Confirmez le mot de passe*
+									input(type='password', name='confirm-password', placeholder='Confirmez le mot de passe*').confirm-password
 									span.error-message.error-confirm-password Confirm password
 								span.error-message.error-compare-password Compare password
 					.slider-item.step-2
@@ -61,7 +61,7 @@ block container
 										label(for='mme') mme
 							.group-element
 								.element
-									label(for='name').label Nom*
+									label(for='name').label.hidden Nom*
 									input(type='text', name='name', placeholder='Nom*', maxlength='100').name
 									span.error-message.error-name Name
 								.element
@@ -87,12 +87,12 @@ block container
 							.title
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
-								label(for='address').label Adresse*
+								label(for='address').label.hidden Adresse*
 								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address
 								span.error-message.error-address Address
 							.group-element
 								.element
-									label(for='postcode').label Code postal*
+									label(for='postcode').label.hidden Code postal*
 									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode
 									span.error-message.error-postcode Postcode
 								.element
@@ -104,7 +104,7 @@ block container
 							.title
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
-								label(for='telephone').label Téléphone mobile
+								label(for='telephone').label.hidden Téléphone mobile
 								input(type='text', name='telephone', placeholder='Téléphone mobile', maxlength='20').telephone
 					.slider-item.step-6
 						fieldset

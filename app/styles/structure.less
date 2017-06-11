@@ -1,54 +1,6 @@
 // Structure
-html {
-  font-size: @font-size-base;
-/*  [class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }*/
-}
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  appearance: button;
-}
-select,
-option {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  font-size: 0.762rem;
-  font-family: @font-family-Geometric706BT-MediumB;
-}
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-  font-family: @font-family-Geometric415BT-LiteA;
-  border-radius:  0.238rem;
-  padding: 0.619rem 1.048rem;
-  outline: none;
-  border: 2px solid transparent;
-  font-size: 0.857rem;
-  color: black;
-  display: block;
-  width: 100%;
-}
-input[type="radio"] {
-  -webkit-appearance: radio;
-}
-input[type="checkbox"] {
-  -webkit-appearance: checkbox;
-}
-
-.bg-cover {
+/* .bg-cover {
   background: url(../images/bg-body.jpg) center top no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -61,10 +13,7 @@ input[type="checkbox"] {
   height: 100%;
   background-color: @black; 
 }
-main {
-
-}
-
+ */
 .top-bg-gradient {
   height: 14.29rem;
   width: 100%;
@@ -414,7 +363,7 @@ span.error-message,
   }
   .element {
     margin-top: 7.143rem;
-    input[type='submit'] {
+    .btn-submit {
       font-family: @font-family-Geometric706BT-BlackB;
       font-size: 0.8rem;
       background-color: @button-color;
@@ -424,6 +373,7 @@ span.error-message,
       text-transform: uppercase;
       padding: 0.5714rem 2.667rem;
       margin-top: 0.9524rem;
+      cursor: pointer;
     }
   }
 }
@@ -530,7 +480,7 @@ span.error-message,
     &::after {
       content: "\e900";
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 50%;
       font-family: @font-family-Icomoon;
       color: #ffe4a9;
@@ -564,9 +514,6 @@ span.error-message,
   input[type="email"] {
     padding: 0.571rem 1rem;
     font-size: 1.067rem;
-  }
-  .bg-cover {
-    background: url(../images/bg-mobile.jpg) center top no-repeat;
   }
   p {
     font-size: 1rem;

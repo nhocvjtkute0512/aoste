@@ -30,87 +30,106 @@
         emailFilter: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
       };
 
-      $('.element input').blur(function () {
+      $('[data-required]').blur(function () {
         that.required(
           $.trim($(this).val()),
-          $(this).parent('.element').children('span')
+          $(this).next(),
+          $(this).data('messageRequired')
         );
       });
 
       $('[data-email]').blur(function () {
         that.email(
           $.trim($(this).val()),
-          $(this).parent('.element').children('span')
+          $(this).next(),
+          $(this).data('emailInvalid')
         );
       });
 
-      $('.group-element div input').blur(function () {
-        that.required(
+      $('[data-min-length]').blur(function() {
+        that.minLength(
           $.trim($(this).val()),
-          $(this).parent('div').children('span')
-        );
-        that.length(
+          $(this).data('minLength'),
+          $(this).next()
+        );      
+      });
+
+      $('[data-max-length]').blur(function() {
+        that.maxLength(
           $.trim($(this).val()),
-          $(this).parent('div').children('span'),
-          4
+          $(this).data('maxLength'),
+          $(this).next()
         );
       });
 
-      $('.postcode, .telephone ').keyup(function () {
+      $('[data-number]').keyup(function () {
         if (/\D/g.test(this.value)) {
           this.value = this.value.replace(/\D/g, '');
         }
       });
-
-      $('.confirm-password').blur(function () {
-        that.compare($.trim($(this).val()), $.trim($('.password').val()), $('.error-compare-password'));
+      
+      $('[data-confirm-password]').blur(function () {
+        that.compare(
+          $.trim($('[data-password]').val()),
+          $.trim($(this).val()),
+          $(this).next()       
+        );
       });
     },
 
-    compare: function (element1, element2, errorMess) {
+    minLength: function(element, min, messElement) {
+      if (element.length !== 0) {
+        if (element.length < min) {
+          messElement.addClass('visible').text('You need to enter at least a ' + min +' character');
+        }
+        else {
+          messElement.removeClass('visible').text('');
+        }        
+      }
+    },
+
+    maxLength: function(element, max, messElement) {
+      if (element.length !== 0) {
+        if (element.length > max) {
+          if (element.length > max) {
+            messElement.addClass('visible').text('You need to enter less than ' + max + ' character');
+          }
+          else {
+            messElement.removeClass('visible').text('');
+          }        
+        }
+      } 
+    },
+
+    required: function (element, messElement, messText) {
+      if (element.length === 0) {
+        messElement.addClass('visible').text(messText);
+      }
+      else {
+        messElement.removeClass('visible').text('');
+      }
+    },
+
+    email: function (element, messElement, messText) {
+      if (element !== '') {
+        if (!this.vars.emailFilter.test(element)) {
+          messElement.addClass('visible').text(messText);
+        }
+        else {
+          messElement.removeClass('visible').text('');
+        }        
+      }
+    },
+
+    compare: function (element1, element2, messElement) {
       if (element1 !== element2) {
-        errorMess.addClass('visible');
+        messElement.addClass('visible').text('Password does not match the confirm password');
       }
       else {
-        errorMess.removeClass('visible');
+        messElement.removeClass('visible').text('');
       }
     },
-
-    email: function (element, errorMess) {
-      if (!this.vars.emailFilter.test(element)) {
-        errorMess.addClass('visible');
-      }
-      else {
-        errorMess.removeClass('visible');
-      }
-    },
-
-    required: function (element, errorMess) {
-      if (element === '') {
-        errorMess.addClass('visible');
-      }
-      else {
-        errorMess.removeClass('visible');
-      }
-    },
-
-    length: function (element, errorMess, min) {
-      if (element.length < min) {
-        errorMess.addClass('visible');
-      }
-      else {
-        errorMess.removeClass('visible');
-      }
-    },
-
-    checkvalue: function () {
-      $('input').keyup(function () {
-        if (/\D/g.test(this.value)) {
-          this.value = this.value.replace(/\D/g, '');
-        }
-      });
-    },
-
+    
     destroy: function () {
       $.removeData(this.element[0], pluginName);
     }

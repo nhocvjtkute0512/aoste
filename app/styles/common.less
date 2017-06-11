@@ -1,11 +1,14 @@
 // Common
 .color-1 {}
-
+html {
+  font-size: @font-size-base;
+  height: 100%;
+}
 main {
   position: relative;
   &:before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -13,9 +16,44 @@ main {
     background-image: url(../images/bg-body.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: @black;
-    @media (max-width: @screen-sm) {
+    background-color: @bgcolor;
+    height: 100%;
+    @media (max-width: @screen-md) {
       background-image: url(../images/bg-mobile.jpg);
+      position: absolute;
     }
   }
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: button;
+}
+select,
+option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 0.762rem;
+  font-family: @font-family-Geometric706BT-MediumB;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  font-family: @font-family-Geometric415BT-LiteA;
+  border-radius:  0.238rem;
+  padding: 0.619rem 1.048rem;
+  outline: none;
+  border: 2px solid transparent;
+  font-size: 0.857rem;
+  color: black;
+  display: block;
+  width: 100%;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
 }

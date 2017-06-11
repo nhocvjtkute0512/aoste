@@ -27,18 +27,17 @@ block container
 									|	Une question de formalité
 							.element
 								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*').email(data-email)
-								span.error-message.error-email Email mail error
+								input(type='text', name='email', placeholder='Votre e-mail*').email(data-required, data-email, data-message-required='Email is required', data-email-invalid='Invalid email address')
+								span.error-message.error-email
 							.group-element
 								.element
 									label(for='password').label Votre mot de passe*
-									input(type='password', name='password', placeholder='Votre mot de passe*').password
+									input(type='password', name='password', placeholder='Votre mot de passe*').password(data-required, data-min-length='4', data-max-length='16', data-message-required='Please enter password', data-password)
 									span.error-message.error-password Password
 								.element
 									label(for='confirm-password').label.hidden Confirmez le mot de passe*
-									input(type='password', name='confirm-password', placeholder='Confirmez le mot de passe*').confirm-password
+									input(type='password', name='confirm-password', placeholder='Confirmez le mot de passe*').confirm-password(data-required, data-min-length='4', data-max-length='6', data-message-required='Please enter confirm password', data-confirm-password)
 									span.error-message.error-confirm-password Confirm password
-								span.error-message.error-compare-password Compare password
 					.slider-item.step-2
 						fieldset
 							.title
@@ -61,11 +60,11 @@ block container
 							.group-element
 								.element
 									label(for='name').label.hidden Nom*
-									input(type='text', name='name', placeholder='Nom*', maxlength='100').name
+									input(type='text', name='name', placeholder='Nom*', maxlength='100').name(data-required, data-message-required='Please enter your name')
 									span.error-message.error-name Name
 								.element
 									label(for='first-name').label.hidden Prénom*
-									input(type='text', name='first-name', placeholder='Prénom*', maxlength='100').first-name
+									input(type='text', name='first-name', placeholder='Prénom*', maxlength='100').first-name(data-required, data-message-required='Please enter your first name')
 									span.error-message.error-name First name
 					.slider-item.step-3
 						fieldset
@@ -165,16 +164,16 @@ block container
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='address').label.hidden Adresse*
-								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address
+								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address(data-required, , data-message-required='Please enter your address')
 								span.error-message.error-address Address
 							.group-element
 								.element
 									label(for='postcode').label.hidden Code postal*
-									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode
+									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode(data-required, data-number, data-max-length='6')
 									span.error-message.error-postcode Postcode
 								.element
 									label(for='city').label.hidden Ville*
-									input(type='text', name='city', placeholder='Ville*', maxlength='100').city
+									input(type='text', name='city', placeholder='Ville*', maxlength='100').city(data-required, data-message-required='Please enter city name')
 									span.error-message.error-city City
 					.slider-item.step-5
 						fieldset
@@ -182,7 +181,7 @@ block container
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='telephone').label.hidden Téléphone mobile
-								input(type='text', name='telephone', placeholder='Téléphone mobile', maxlength='20').telephone
+								input(type='text', name='telephone', placeholder='Téléphone mobile', maxlength='20').telephone(data-number)
 					.slider-item.step-6
 						fieldset
 							.title
@@ -190,6 +189,6 @@ block container
 									input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' required).comfirm-checkbox
 									label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
 							.element
-								input(type='submit', value='devenir membre').btn-submit
+								span.btn-submit devenir membre
 		.top-bg-gradient
 		.bottom-bg-gradient

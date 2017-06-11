@@ -76,11 +76,89 @@ block container
 								p Date de naissance*
 								.group-selection
 									.selection.select-day
-										+select('JJ',1,2,3,4,5,6,7,8,9,10,11,12)
+										.selection-wrapper
+											.selection-item
+												span.selection-label.selection-day JJ
+												select.select-list
+													option(value='') JJ
+													option(value='1') 01
+													option(value='2') 02
+													option(value='3') 03
+													option(value='4') 04
+													option(value='5') 05
+													option(value='6') 06
+													option(value='7') 07
+													option(value='8') 08
+													option(value='9') 09
+													option(value='10') 10
+												ul.combobox-list.day-list
+													li.list-item.day-item(data-value='') JJ
+													li.list-item.day-item(data-value='01') 01
+													li.list-item.day-item(data-value='02') 02
+													li.list-item.day-item(data-value='03') 03
+													li.list-item.day-item(data-value='04') 04
+													li.list-item.day-item(data-value='05') 05
+													li.list-item.day-item(data-value='06') 06
+													li.list-item.day-item(data-value='07') 07
+													li.list-item.day-item(data-value='08') 08
+													li.list-item.day-item(data-value='09') 09
+													li.list-item.day-item(data-value='10') 10
 									.selection.select-month
-										+select('MM',1,2,3,4,5,6,7,8,9,10)
+										.selection-wrapper
+											.selection-item
+												span.selection-label.selection-month MM
+												select.select-list
+													option(value='') MM
+													option(value='1') 01
+													option(value='2') 02
+													option(value='3') 03
+													option(value='4') 04
+													option(value='5') 05
+													option(value='6') 06
+													option(value='7') 07
+													option(value='8') 08
+													option(value='9') 09
+													option(value='10') 10
+												ul.combobox-list.month-list
+													li.list-item.month-item(data-value='') MM
+													li.list-item.month-item(data-value='01') 01
+													li.list-item.month-item(data-value='02') 02
+													li.list-item.month-item(data-value='03') 03
+													li.list-item.month-item(data-value='04') 04
+													li.list-item.month-item(data-value='05') 05
+													li.list-item.month-item(data-value='06') 06
+													li.list-item.month-item(data-value='07') 07
+													li.list-item.month-item(data-value='08') 08
+													li.list-item.month-item(data-value='09') 09
+													li.list-item.month-item(data-value='10') 10
 									.selection.select-year
-										+select('AAAA',1,2,3,4,5,6,7,8,9,10)
+										.selection-wrapper
+											.selection-item
+												span.selection-label.selection-year AAAA
+												select.select-list
+													option(value='') AAAA
+													option(value='1') 01
+													option(value='2') 02
+													option(value='3') 03
+													option(value='4') 04
+													option(value='5') 05
+													option(value='6') 06
+													option(value='7') 07
+													option(value='8') 08
+													option(value='9') 09
+													option(value='10') 10
+												ul.combobox-list.year-list
+													li.list-item.year-item(data-value='') AAAA
+													li.list-item.year-item(data-value='01') 2001
+													li.list-item.year-item(data-value='02') 2002
+													li.list-item.year-item(data-value='03') 2003
+													li.list-item.year-item(data-value='04') 2004
+													li.list-item.year-item(data-value='05') 2005
+													li.list-item.year-item(data-value='06') 2006
+													li.list-item.year-item(data-value='07') 2007
+													li.list-item.year-item(data-value='08') 2008
+													li.list-item.year-item(data-value='09') 2009
+													li.list-item.year-item(data-value='10') 2010
 								span.error-message.error-birthday Lorem Ipsum is simply dummy text
 					.slider-item.step-4
 						fieldset

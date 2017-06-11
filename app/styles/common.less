@@ -1,2 +1,21 @@
 // Common
 .color-1 {}
+
+main {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/bg-body.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: @black;
+    @media (max-width: @screen-sm) {
+      background-image: url(../images/bg-mobile.jpg);
+    }
+  }
+}

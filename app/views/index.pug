@@ -7,14 +7,13 @@ block vars
 
 block container
 	main
-		.bg-cover
 		.register-slider
 			.dots
 			.button-group
 				button(type='button', name='close').btn-close 
 				button(type='button', name='up').btn-up
 				button(type='button', name='down').btn-down
-			form(action='' method='').register-form
+			form(action='' method='').register-form(data-validate)
 				.slider-wrapper
 					.slider-item.step-1.slider-active
 						.heading
@@ -28,8 +27,8 @@ block container
 									|	Une question de formalité
 							.element
 								label(for='email').label Votre e-mail*
-								input(type='text', name='email', placeholder='Votre e-mail*').email
-								span.error-message.error-email Email
+								input(type='text', name='email', placeholder='Votre e-mail*').email(data-email)
+								span.error-message.error-email Email mail error
 							.group-element
 								.element
 									label(for='password').label Votre mot de passe*

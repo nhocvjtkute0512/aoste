@@ -11,8 +11,8 @@
  *    publicMethod
  *    destroy
  */
- 
-;(function($, window, undefined) {
+
+; (function ($, window, undefined) {
   'use strict';
 
   var pluginName = 'validate';
@@ -24,29 +24,29 @@
   }
 
   Plugin.prototype = {
-    init: function() {
+    init: function () {
       var that = this;
       this.vars = {
-        emailFilter : /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-      };    
+        emailFilter: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+      };
 
-      $('.element input').blur(function() {
+      $('.element input').blur(function () {
         that.required(
-          $.trim($(this).val()), 
+          $.trim($(this).val()),
           $(this).parent('.element').children('span')
         );
       });
 
-      $('.element input[name="email"]').blur(function() {
+      $('[data-email]').blur(function () {
         that.email(
-          $.trim($(this).val()), 
+          $.trim($(this).val()),
           $(this).parent('.element').children('span')
         );
       });
 
-      $('.group-element div input').blur(function() {
+      $('.group-element div input').blur(function () {
         that.required(
-          $.trim($(this).val()), 
+          $.trim($(this).val()),
           $(this).parent('div').children('span')
         );
         that.length(
@@ -56,19 +56,18 @@
         );
       });
 
-      $('.postcode, .telephone ').keyup(function(){
-        if (/\D/g.test(this.value))
-        {
+      $('.postcode, .telephone ').keyup(function () {
+        if (/\D/g.test(this.value)) {
           this.value = this.value.replace(/\D/g, '');
         }
       });
 
-      $('.confirm-password').blur(function() {
+      $('.confirm-password').blur(function () {
         that.compare($.trim($(this).val()), $.trim($('.password').val()), $('.error-compare-password'));
       });
     },
 
-    compare: function(element1, element2, errorMess) {
+    compare: function (element1, element2, errorMess) {
       if (element1 !== element2) {
         errorMess.addClass('visible');
       }
@@ -77,7 +76,7 @@
       }
     },
 
-    email: function(element, errorMess) {
+    email: function (element, errorMess) {
       if (!this.vars.emailFilter.test(element)) {
         errorMess.addClass('visible');
       }
@@ -85,8 +84,8 @@
         errorMess.removeClass('visible');
       }
     },
-    
-    required: function(element, errorMess) {
+
+    required: function (element, errorMess) {
       if (element === '') {
         errorMess.addClass('visible');
       }
@@ -95,7 +94,7 @@
       }
     },
 
-    length: function(element, errorMess, min) {
+    length: function (element, errorMess, min) {
       if (element.length < min) {
         errorMess.addClass('visible');
       }
@@ -104,22 +103,21 @@
       }
     },
 
-    checkvalue: function() {
-      $('input').keyup(function(){
-        if (/\D/g.test(this.value))
-        {
+    checkvalue: function () {
+      $('input').keyup(function () {
+        if (/\D/g.test(this.value)) {
           this.value = this.value.replace(/\D/g, '');
         }
       });
     },
 
-    destroy: function() {
+    destroy: function () {
       $.removeData(this.element[0], pluginName);
     }
   };
 
-  $.fn[pluginName] = function(options, params) {
-    return this.each(function() {
+  $.fn[pluginName] = function (options, params) {
+    return this.each(function () {
       var instance = $.data(this, pluginName);
       if (!instance) {
         $.data(this, pluginName, new Plugin(this, options));
@@ -130,16 +128,16 @@
   };
 
   $.fn[pluginName].defaults = {
-    
+
   };
 
-  $(function() {
-    $('[data-' + pluginName + ']').on('customEvent', function() {
-      
+  $(function () {
+    $('[data-' + pluginName + ']').on('customEvent', function () {
+
     });
 
     $('[data-' + pluginName + ']')[pluginName]({
-      
+
     });
   });
 

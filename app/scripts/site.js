@@ -1,6 +1,8 @@
 $(function() {
 
-	if ($(window).width() > 1024) {
+
+  if ($(window).width() > 1024) {
+    $('.register-slider').height($(window).height());
 		$('.register-slider').slider({
 			speed: 500,
 			dot: true
@@ -32,12 +34,10 @@ $(function() {
 
   $('.year-item').click(function() {
   	$('.selection-year').text($(this).text())
-  	console.log($(this).text());
   });
 
   $('body').click(function() {
   	$('.day-list, .month-list, .year-list').slideUp();
   });
-
 
 });

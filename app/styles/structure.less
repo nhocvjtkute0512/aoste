@@ -1,19 +1,5 @@
 // Structure
 
-/* .bg-cover {
-  background: url(../images/bg-body.jpg) center top no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: @black; 
-}
- */
 .top-bg-gradient {
   height: 14.29rem;
   width: 100%;
@@ -66,18 +52,18 @@ span.error-message,
   fieldset {
     border: none;
     color: @white;
-    .title {
-      margin-bottom: 1.867rem;
-      h3 {
-        font-family: @font-family-Amiri-Slanted;
-        font-size: 1.619rem;
-        font-weight: normal;
-        span {
-          font-family: @font-family-Geometric706BT-MediumB;
-          font-size: 0.857rem;
-          margin-right: -5px;
-        }
-      }
+  }
+}
+.title {
+  margin-bottom: 1.867rem;
+  h3 {
+    font-family: @font-family-Amiri-Slanted;
+    font-size: 1.619rem;
+    font-weight: normal;
+    span {
+      font-family: @font-family-Geometric706BT-MediumB;
+      font-size: 0.857rem;
+      margin-right: -5px;
     }
   }
 }
@@ -306,7 +292,7 @@ span.error-message,
     background: white;
     border-radius: 0 0 0.3333rem 0.3333rem;
     z-index: 2;
-    max-height: 7.6rem;
+    max-height: 10rem;
     overflow: auto;
     list-style-type: none;
   .list-item {
@@ -323,11 +309,9 @@ span.error-message,
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 0.4762rem;
-    background-color: @scroll-bar-color;
   }
   &::-webkit-scrollbar {
     width: 5px;
-    background-color: @scroll-bar-color;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -675,6 +659,22 @@ span.error-message,
     .element {
       text-align: center;
       margin-top: 4.762rem;
+    }
+  }
+}
+@media only screen and (max-width: @screen-xs) {
+  .register-slider {
+    .button-group {
+      position: absolute;
+      top: 0;
+      right: 0.5rem;
+      .btn-close {
+        width: 1.6rem;
+        height: 1.6rem;
+        &::after {
+          font-size: 0.5rem;
+        }
+      }
     }
   }
 }

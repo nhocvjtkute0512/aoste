@@ -28,6 +28,9 @@
       var that = this;
       this.vars = {
         emailFilter: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+        flagDay: false,
+        flagMonth: false,
+        flagYear: false,
       };
 
       $('[data-required]').blur(function () {
@@ -74,6 +77,32 @@
           $.trim($(this).val()),
           $(this).next()       
         );
+      });
+
+      $('[data-day-list]').children('li').on('click', function() {
+        that.vars.flagDay = true;
+      });
+      $('[data-month-list]').children('li').on('click', function() {
+        that.vars.flagMonth = true;
+      });
+      $('[data-year-list]').children('li').on('click', function() {
+        that.vars.flagYear = true;
+      });
+
+      $('[data-submit]').on('click', function() {
+        if (!($('[data-checkbox]').prop('checked'))) {
+          $('.error-checkbox').addClass('visible').text('Please check the checkbox');
+        }
+        else {
+         $('.error-checkbox').removeClass('visible').text(''); 
+        }
+        if (that.vars.flagDay === false || that.vars.flagMonth === false || that.vars.flagYear === false) {
+          $('.error-birthday').addClass('visible').text('Please enter your birthday');
+          $('[data-day-list]').focus();
+        }
+        else {
+          $('.error-birthday').removeClass('visible').text('');
+        }
       });
     },
 

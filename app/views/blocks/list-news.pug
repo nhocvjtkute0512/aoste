@@ -1,0 +1,15 @@
+| {{#each data.news}}
+| {{#if year}}
+.title(class= '{{bg-color}}'): h3 {{year}}
+| {{/if}}
+.list-news-item
+  p.news-date {{date}}
+  | {{#if notice}}
+  p.red {{notice}}
+  | {{/if}}
+  a(href= '{{url}}', title= '{{title}}').news-link {{title}}
+  i.fa.fa-caret-right
+  | {{#if desc}}
+  p {{desc}}
+  | {{/if}}
+| {{/each}}

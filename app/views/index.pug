@@ -33,11 +33,11 @@ block container
 								.element
 									label(for='password').label Votre mot de passe*
 									input(type='password', name='password', placeholder='Votre mot de passe*').password(data-required, data-min-length='4', data-max-length='16', data-message-required='Please enter password', data-password)
-									span.error-message.error-password Password
+									span.error-message.error-password
 								.element
 									label(for='confirm-password').label.hidden Confirmez le mot de passe*
 									input(type='password', name='confirm-password', placeholder='Confirmez le mot de passe*').confirm-password(data-required, data-min-length='4', data-max-length='6', data-message-required='Please enter confirm password', data-confirm-password)
-									span.error-message.error-confirm-password Confirm password
+									span.error-message.error-confirm-password
 					.slider-item.step-2
 						fieldset
 							.title
@@ -61,11 +61,11 @@ block container
 								.element
 									label(for='name').label.hidden Nom*
 									input(type='text', name='name', placeholder='Nom*', maxlength='100').name(data-required, data-message-required='Please enter your name')
-									span.error-message.error-name Name
+									span.error-message.error-name
 								.element
 									label(for='first-name').label.hidden Prénom*
 									input(type='text', name='first-name', placeholder='Prénom*', maxlength='100').first-name(data-required, data-message-required='Please enter your first name')
-									span.error-message.error-name First name
+									span.error-message.error-name
 					.slider-item.step-3
 						fieldset
 							.title
@@ -78,7 +78,6 @@ block container
 											.selection-item
 												span.selection-label.selection-day JJ
 												select.select-list
-													option(value='') JJ
 													option(value='1') 01
 													option(value='2') 02
 													option(value='3') 03
@@ -89,8 +88,7 @@ block container
 													option(value='8') 08
 													option(value='9') 09
 													option(value='10') 10
-												ul.combobox-list.day-list
-													li.list-item.day-item(data-value='') JJ
+												ul.combobox-list.day-list(data-day-list)
 													li.list-item.day-item(data-value='01') 01
 													li.list-item.day-item(data-value='02') 02
 													li.list-item.day-item(data-value='03') 03
@@ -106,7 +104,6 @@ block container
 											.selection-item
 												span.selection-label.selection-month MM
 												select.select-list
-													option(value='') MM
 													option(value='1') 01
 													option(value='2') 02
 													option(value='3') 03
@@ -117,8 +114,7 @@ block container
 													option(value='8') 08
 													option(value='9') 09
 													option(value='10') 10
-												ul.combobox-list.month-list
-													li.list-item.month-item(data-value='') MM
+												ul.combobox-list.month-list(data-month-list)
 													li.list-item.month-item(data-value='01') 01
 													li.list-item.month-item(data-value='02') 02
 													li.list-item.month-item(data-value='03') 03
@@ -134,7 +130,6 @@ block container
 											.selection-item
 												span.selection-label.selection-year AAAA
 												select.select-list
-													option(value='') AAAA
 													option(value='1') 01
 													option(value='2') 02
 													option(value='3') 03
@@ -145,8 +140,7 @@ block container
 													option(value='8') 08
 													option(value='9') 09
 													option(value='10') 10
-												ul.combobox-list.year-list
-													li.list-item.year-item(data-value='') AAAA
+												ul.combobox-list.year-list(data-year-list)
 													li.list-item.year-item(data-value='01') 2001
 													li.list-item.year-item(data-value='02') 2002
 													li.list-item.year-item(data-value='03') 2003
@@ -157,24 +151,24 @@ block container
 													li.list-item.year-item(data-value='08') 2008
 													li.list-item.year-item(data-value='09') 2009
 													li.list-item.year-item(data-value='10') 2010
-								span.error-message.error-birthday Lorem Ipsum is simply dummy text
+								span.error-message.error-birthday 
 					.slider-item.step-4
 						fieldset
 							.title
 								p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							.element
 								label(for='address').label.hidden Adresse*
-								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address(data-required, , data-message-required='Please enter your address')
-								span.error-message.error-address Address
+								input(type='text', name='address', placeholder='Adresse*', maxlength='200').address(data-required, data-message-required='Please enter your address')
+								span.error-message.error-address
 							.group-element
 								.element
 									label(for='postcode').label.hidden Code postal*
-									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode(data-required, data-number, data-max-length='6')
-									span.error-message.error-postcode Postcode
+									input(type='text', name='postcode', placeholder='Code postal*', maxlength='6').postcode(data-required, data-number, data-message-required='Please enter postcode')
+									span.error-message.error-postcode
 								.element
 									label(for='city').label.hidden Ville*
 									input(type='text', name='city', placeholder='Ville*', maxlength='100').city(data-required, data-message-required='Please enter city name')
-									span.error-message.error-city City
+									span.error-message.error-city
 					.slider-item.step-5
 						fieldset
 							.title
@@ -186,9 +180,11 @@ block container
 						fieldset
 							.title
 								.checkbox-item
-									input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' required).comfirm-checkbox
+									input(type='checkbox', id='comfirm-checkbox',  name='comfirm-checkbox', value='comfirm-checkbox' data-checkbox).comfirm-checkbox
 									label(for='comfirm-checkbox').confirm-label Je déclare avoir pris connaissance et accepté le règlement du Club Aoste*
+									span.error-message.error-checkbox checkbox
 							.element
-								span.btn-submit devenir membre
+								span.btn-submit(data-submit) devenir membre
 		.top-bg-gradient
 		.bottom-bg-gradient
+		div(data-handlebars, data-template= '../template-handlebars/list-news.html', data-ajax= '../data/data-list-news.json')
